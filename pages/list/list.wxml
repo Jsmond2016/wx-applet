@@ -1,0 +1,21 @@
+<!--pages/list/list.wxml-->
+<import src="/pages/template/list-template.wxml" />
+<view>
+  <swiper indicator-dots="true" indicator-color="white" indicator-active-color="green">
+    <swiper-item>
+      <image src='/images/list/g-01.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/list/g-02.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/list/g-03.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/list/g-04.jpg'></image>
+    </swiper-item>
+  </swiper>
+  <view>
+    <template is="listTem" />
+  </view>
+</view>
