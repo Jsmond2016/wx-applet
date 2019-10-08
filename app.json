@@ -10,5 +10,6 @@
     "navigationBarTitleText": "小林子呀",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio", "location"]
 }

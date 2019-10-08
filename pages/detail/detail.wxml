@@ -1,6 +1,7 @@
 <!--pages/detail/detail.wxml-->
 <view class="detaiContainer">
-  <image src="{{detailObj.detail_img}}" class="headImg"></image>
+  <image src="{{isMusicPlay ? detailObj.music.coverImgUrl : detailObj.detail_img}}" class="headImg"></image>
+  <image catchtap="handleMusicPlay" class="musicImg" src="{{isMusicPlay ? '/images/music/music-start.png' : '/images/music/music-stop.png' }}"></image>
   <view class="avatar_date">
     <image src="{{detailObj.avatar}}"></image>
     <text>{{detailObj.author}}</text>

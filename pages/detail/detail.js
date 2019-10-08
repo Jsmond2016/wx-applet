@@ -1,5 +1,7 @@
 // pages/detail/detail.js
 let datas = require("../../datas/list-data.js");
+const backgroundAudioManager = wx.getBackgroundAudioManager();
+let appData = getApp();
 Page({
 
   /**
@@ -9,8 +11,31 @@ Page({
     detailObj: [],
     index: null,
     isCollected: false,
+    isMusicPlay: false,
   },
+  // 处理音乐播放
+  handleMusicPlay() {
+    let isMusicPlay = !this.data.isMusicPlay;
+    this.setData({
+      isMusicPlay
+    })
+    console.log("isMusicPlay", isMusicPlay);
+    // 控制音乐播放
+    let { dataUrl, title } = this.data.detailObj.music;
+    backgroundAudioManager.title = title;
+    backgroundAudioManager.src = dataUrl;
 
+    if(isMusicPlay) {
+      // 播放音乐
+      console.log("music 开始播放");
+      backgroundAudioManager.play();
+    } else {
+      console.log("music 暂停");
+      backgroundAudioManager.pause();
+    }
+
+
+  },
   handleCollection() {
     console.log('collect');
     let isCollected = !this.data.isCollected;
@@ -70,6 +95,34 @@ Page({
         isCollected: true
       })
     }
+
+
+    // 监听音乐是否在播放
+  if(appData.data.isPlay && appData.data.pageIndex === index) {
+    this.setData({
+      isMusicPlay: true
+    })
+  }
+
+    // 监听音乐播放状态
+    backgroundAudioManager.onPlay(() => {
+      this.setData({
+        isMusicPlay: true
+      })
+      // 修改全局 app 中音乐的播放状态
+      appData.data.isPlay = true;
+      appData.data.pageIndex = index;
+    });
+    
+    
+    // 监听音乐是否暂停
+    backgroundAudioManager.onPause(() => {
+      this.setData({
+        isMusicPlay: false
+      })
+      appData.data.isPlay = false;
+    })
+   
   },
 
 })
