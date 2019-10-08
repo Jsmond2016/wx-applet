@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/list/list",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/template/list-template"
   ],
@@ -8,5 +9,6 @@
     "navigationBarBackgroundColor": "#8ED415",
     "navigationBarTitleText": "小林子呀",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

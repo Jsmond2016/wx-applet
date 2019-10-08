@@ -1,21 +1,23 @@
 <!--pages/list/list.wxml-->
 <import src="/pages/template/list-template.wxml" />
 <view>
-  <swiper indicator-dots="true" indicator-color="white" indicator-active-color="green">
+  <swiper catchtap="carouselToDetail" indicator-dots="true" indicator-color="white" indicator-active-color="green">
     <swiper-item>
-      <image src='/images/list/g-01.jpg'></image>
+      <image data-index="0" src='/images/list/g-01.jpg'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/list/g-02.jpg'></image>
+      <image data-index="1" src='/images/list/g-02.jpg'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/list/g-03.jpg'></image>
+      <image data-index="2" src='/images/list/g-03.jpg'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/list/g-04.jpg'></image>
+      <image data-index="3" src='/images/list/g-04.jpg'></image>
     </swiper-item>
   </swiper>
-  <view>
-    <template is="listTem" />
-  </view>
+  <block wx:for="{{listArr}}" wx:key="{{index}}">
+    <view catchtap="toDetail" data-index="{{index}}">
+      <template is="listTem" data='{{...item}}'/>
+    </view>
+  </block>
 </view>

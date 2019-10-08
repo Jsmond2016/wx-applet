@@ -1,22 +1,39 @@
 // pages/list/list.js
 let datas = require("../../datas/list-data.js");
-console.log(datas);
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    listArr: [],
   },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      listArr: datas.list_data
+    })
   },
-
+  // 点击跳转到详情页
+  toDetail(event) {
+    // console.log(event);
+    let index = event.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '/pages/detail/detail?index=' + index,
+    })
+  },
+  // 点击轮播图跳转
+  carouselToDetail(e) {
+    let index = e.target.dataset.index;
+    wx.navigateTo({
+      url: '/pages/detail/detail?index='+ index,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -35,14 +52,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    console.log('页面隐藏');
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    console.log('页面卸载');
   },
 
   /**

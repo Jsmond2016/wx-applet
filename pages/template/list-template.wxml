@@ -2,17 +2,17 @@
 <template name="listTem">
     <view class='temContainer'>
         <view class='avatar_data'>
-            <image src="/images/list/swiper-01.jpg"></image>
-            <text>hello, world~ </text>
+            <image src="{{avatar}}"></image>
+            <text> {{date}} </text>
         </view>
-        <text class='company'>哈喽哈喽</text>
-        <image class="contentImg" src="/images/list/swiper-02.jpg"></image>
-        <text class='content'>笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本笔记本</text>
+        <text class='company'>{{title}}</text>
+        <image class="contentImg" src="{{detail_img}}"></image>
+        <text class='content'>{{detail_content}}</text>
         <view class='collection_love'>
-            <image src=""></image>
-            <text>88</text>
-            <image src=""></image>
-            <text>66</text>
+            <image src="/images/icon/star.png"></image>
+            <text>{{love_count}}</text>
+            <image src="/images/icon/view.png"></image>
+            <text>{{attention_count}}</text>
         </view>
     </view>
 </template>
